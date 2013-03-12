@@ -15,11 +15,10 @@ object ApplicationBuild extends Build {
   )
 
   val assets = play.Project(appName + "-assets", appVersion, appDependencies, path = file("modules/assets")).settings(
-    // Add your own project settings here
+    requireJs += "main.js"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-    requireJs += "main.js"
   ).dependsOn(assets)
 
 }
